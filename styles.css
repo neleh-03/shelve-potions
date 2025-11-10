@@ -1,0 +1,1314 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --border-rocks: #383838;
+    --rocks: #4C4C4C;
+    --frame-window: #242424;
+    --outside: #04022a;
+    --moon-out: #efe817;
+    --moon-in: #f7c709;
+    --bars: #353529;
+    --stars: #fffded;
+    --start-light: #fff7c6;
+    --shelve: #563E31;
+    --shelve-shadow: #46342A;
+    --glass-out: #C7E5FF;
+    --glass-in: #9FCCFF;
+
+    /* EYE POTION 1*/
+    --eye-liq: #d027ae;
+    --eye-liq-shad: #a8208d;
+    --bubbles: #f3aae9;
+    --bubbles-shadow: #d796ce;
+
+    /*BONE POTION 2*/
+    --bone-liq: #55BE6D;
+    --bone-lid-shad: #4ba660;
+    --gree-bubble: #b6ed9b;
+    --green-bubble-shadow: #a4d88a;
+    --bone: #e2fece;
+    --bone-shadow: #acc49c;
+
+    /*GHOSTS POTION 3*/
+    --ghost-liq: #1F65DF;
+    --ghost-liq-shad: #1C58BE;
+    --ghost-body: #c3d9ffed;
+    --ghost-eye-mouth: #000000ea;
+
+    /*EMPTHY GLASS*/
+    --liquid-in: #e5d30e;
+    --liquid-out: #ddcc0e;
+    --liquid-floor: #d8c70c;
+
+    /*LOVE POTION*/
+    --bottom: #bad4ea;
+    --heart: #b70000;
+}
+
+body {
+    background: #332437;
+}
+
+.container {
+    display: flex;
+    position: relative;
+    min-width: 100%;
+}
+
+.wall {
+    min-width: 1000px;
+    background: var(--border-rocks);
+    z-index: -3;
+
+}
+
+.lines {
+    display: flex;
+}
+
+.lines:nth-child(even) .rocks:first-child {
+    width: 60px;
+}
+
+.lines:nth-child(odd) .rocks:last-child {
+    width: 80px;
+}
+
+.rocks {
+    width: 150px;
+    height: 50px;
+    background: var(--rocks);
+    border-radius: 5px;
+    margin: 2px;
+}
+
+.window {
+    display: flex;
+    min-width: 250px;
+    min-height: 300px;
+    border-radius: 50% 50% 0% 0%;
+    border: var(--frame-window) solid 10px;
+    position: absolute;
+    left: 8%;
+    top: 10%;
+    margin: auto;
+}
+
+.bars {
+    width: 8px;
+    height: 290px;
+    background: var(--bars);
+    margin: auto;
+    z-index: -1;
+}
+
+.window .bars:first-of-type {
+    position: relative;
+    height: 250px;
+    top: 20px;
+}
+
+.window .bars:last-of-type {
+    position: relative;
+    height: 250px;
+    top: 20px;
+}
+
+.outside {
+    background-color: var(--outside);
+    position: absolute;
+    width: 250px;
+    height: 290px;
+    border-radius: 50% 50% 0% 0%;
+    left: -10px;
+    right: 0;
+    margin: 0;
+    z-index: -2;
+}
+
+.moon {
+    width: 130px;
+    height: 130px;
+    background-color: transparent;
+    box-shadow: -20px 10px 10px 5px var(--moon-out);
+    border-radius: 50%;
+    rotate: -5deg;
+    position: absolute;
+    margin: auto;
+    right: 50px;
+    top: 20px;
+}
+
+.moon-in {
+    width: 130px;
+    height: 130px;
+    background-color: transparent;
+    box-shadow: -20px 5px 4px 8px var(--moon-in);
+    border-radius: 50%;
+    position: absolute;
+    margin: auto;
+}
+
+.stars {
+    width: 1px;
+    height: 1px;
+    background: var(--stars);
+    position: absolute;
+    backdrop-filter: blur(1PX);
+    left: 0;
+    right: 0;
+    margin: auto;
+    animation: stars 3s ease-in-out infinite;
+}
+
+.stars::before {
+    content: '';
+    position: absolute;
+    background: var(--start-light);
+    filter: blur(350px);
+    z-index: -1;
+}
+
+.s1 {
+    left: 20px;
+    bottom: 30px;
+    animation-delay: 2s;
+}
+
+.s2 {
+    right: 150px;
+    bottom: 70px;
+    animation-delay: 0.5s;
+}
+
+.s3 {
+    left: 40px;
+    top: 50px;
+}
+
+.s4 {
+    left: 210px;
+    top: 130px;
+    animation-delay: 0.5s;
+}
+
+.s5 {
+    left: 100px;
+    top: 190px;
+    animation-delay: 1s;
+}
+
+@keyframes stars {
+    50% {
+        transform: scale(6);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.shelve-potions {
+    width: 450px;
+    height: 600px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 30px;
+    margin: auto;
+}
+
+.shelve {
+    width: 40px;
+    height: 580px;
+    background: var(--shelve);
+    right: 160px;
+    position: relative;
+    box-shadow: 25px 0px 0px -10px var(--shelve-shadow);
+    margin: auto;
+}
+
+.shelve::before {
+    content: '';
+    width: 40px;
+    height: 580px;
+    background: var(--shelve);
+    position: absolute;
+    rotate: 180deg;
+    box-shadow: 25px 0px 0px -10px var(--shelve-shadow);
+    left: 320px;
+    margin: auto;
+}
+
+.wood1 {
+    width: 330px;
+    height: 35px;
+    background: var(--shelve);
+    position: relative;
+    top: 495px;
+}
+
+.wood1::before {
+    content: '';
+    width: 260px;
+    height: 25px;
+    background: var(--shelve-shadow);
+    position: absolute;
+    left: 50px;
+    bottom: 35px;
+}
+
+.wood2 {
+    width: 350px;
+    height: 35px;
+    background: var(--shelve);
+    position: relative;
+    top: 280px;
+}
+
+.wood2::before {
+    content: '';
+    width: 260px;
+    height: 20px;
+    background: var(--shelve-shadow);
+    position: absolute;
+    left: 50px;
+    bottom: 35px;
+}
+
+.wood3 {
+    width: 350px;
+    height: 35px;
+    background: var(--shelve);
+    position: relative;
+    top: 75px;
+}
+
+.wood3::before {
+    content: '';
+    width: 260px;
+    height: 5px;
+    background: var(--shelve-shadow);
+    position: absolute;
+    left: 50px;
+    top: 35px;
+}
+
+.wood4 {
+    width: 360px;
+    height: 35px;
+    background: var(--shelve);
+    position: relative;
+    bottom: 120px;
+}
+
+.wood4::before {
+    content: '';
+    width: 260px;
+    height: 15px;
+    background: var(--shelve-shadow);
+    position: absolute;
+    left: 50px;
+    top: 35px;
+}
+
+.potions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 150px;
+    gap: 10px;
+    width: 290px;
+    height: 480px;
+    bottom: 575px;
+    left: 80px;
+
+    position: relative;
+}
+
+.potions>div {
+    justify-self: center;
+    align-self: end;
+    width: 120px;
+    height: 140px;
+
+}
+
+.eye-potion {
+    position: relative;
+    left: 10px;
+    top: 335px;
+}
+
+.ring {
+    /*SAME CODE FOR GOST POTION*/
+    width: 40px;
+    height: 12px;
+    background: var(--glass-out);
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 5px;
+    margin: auto;
+    z-index: 2;
+}
+
+.ring::before {
+    /*SAME CODE FOR GOST POTION*/
+    content: '';
+    width: 25px;
+    height: 6px;
+    background-color: var(--glass-in);
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 2px;
+    margin: auto;
+}
+
+.neck {
+    /*SAME CODE FOR GOST POTION*/
+    width: 25px;
+    height: 44px;
+    background: var(--glass-in);
+    border: 4px solid var(--glass-out);
+    border-top: 0;
+    border-bottom: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 15px;
+    margin: auto;
+    z-index: 1;
+
+}
+
+.glass {
+    width: 93px;
+    height: 85px;
+    background: var(--glass-in);
+    border: 7px solid var(--glass-out);
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 52px;
+    margin: auto;
+}
+
+.glass::before {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 42px;
+    background: var(--eye-liq);
+    border-bottom-right-radius: 100px;
+    border-bottom-left-radius: 100px;
+    left: 0;
+    right: 0;
+    top: 32px;
+}
+
+.surface {
+    width: 80px;
+    height: 18px;
+    position: absolute;
+    background: var(--eye-liq-shad);
+    border-radius: 50%;
+    left: 0;
+    right: 0;
+    top: 82px;
+    margin: auto;
+    z-index: 1;
+}
+
+.eye-structure {
+    width: 25px;
+    height: 25px;
+    background: #d5bfcf;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 4px;
+    margin: auto;
+}
+
+.eye {
+    width: 22px;
+    height: 22px;
+    background: #eed2e6;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.eye::before {
+    content: '';
+    width: 14px;
+    height: 14px;
+    background: #2cbebc;
+    border-radius: 100%;
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    animation: eye-move 3s ease-in-out infinite;
+}
+
+.eye::after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 100%;
+    background: #1e1e1e;
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    animation: eye-move 3s ease-in-out infinite;
+}
+
+.bubble {
+    width: 10px;
+    height: 10px;
+    background: var(--bubbles);
+    border-radius: 50%;
+    position: absolute;
+}
+
+.bubble:before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    box-shadow: 0 2px 0 0 var(--bubbles-shadow);
+    border-radius: 50%;
+    position: absolute;
+    bottom: 2px;
+}
+
+.b1 {
+    left: 10px;
+    top: 42px;
+}
+
+.b2 {
+    left: 16px;
+    top: 58px;
+    transform: scale(.5);
+}
+
+.b3 {
+    right: 14px;
+    top: 45px;
+    transform: scale(0.7);
+}
+
+.b4 {
+    right: 2px;
+    top: 38px;
+    transform: scale(0.4);
+}
+
+.b5 {
+    right: 17px;
+    top: 58px;
+    transform: scale(0.6);
+}
+
+@keyframes eye-move {
+    0% {
+        transform: translatex(3px);
+    }
+
+    20% {
+        transform: translate(-4px, 5px);
+    }
+
+    40% {
+        transform: translate(4px, 3px);
+    }
+
+    70% {
+        transform: translate(-4px, -3px);
+    }
+
+    80% {
+        transform: translate(4px, -3px);
+    }
+
+    95% {
+        transform: translateX(1);
+    }
+
+    100% {
+        transform: translatex(3px);
+    }
+}
+
+/*BONE POTION*/
+.scull-potion {
+    position: relative;
+    top: 335px;
+    right: 5px;
+}
+
+.scull-potion .neck {
+    width: 25px;
+}
+
+.triangle-glass {
+    width: 110px;
+    border-bottom: 80px solid var(--glass-out);
+    border-left: 44px solid transparent;
+    border-right: 44px solid transparent;
+    border-radius: 20%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 55px;
+    margin: auto;
+}
+
+.empthy {
+    width: 100px;
+    border-bottom: 71px solid var(--glass-in);
+    border-left: 41px solid transparent;
+    border-right: 42px solid transparent;
+    border-radius: 20%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 59px;
+    margin: auto;
+}
+
+.liquid {
+    width: 93px;
+    height: 80px;
+    border-bottom: 45px solid var(--bone-liq);
+    border-left: 54px solid transparent;
+    border-right: 54px solid transparent;
+    border-radius: 20%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 50px;
+}
+
+.liquid:before {
+    content: '';
+    width: 14px;
+    height: 40px;
+    background: var(--bone-liq);
+    border-radius: 8%;
+    rotate: 30deg;
+    position: absolute;
+    right: 24px;
+    top: 40px;
+    margin: auto;
+}
+
+.liquid:after {
+    content: '';
+    width: 14px;
+    height: 40px;
+    background: var(--bone-liq);
+    border-radius: 8%;
+    rotate: 149deg;
+    position: absolute;
+    left: 0px;
+    left: 24px;
+    top: 40px;
+    margin: auto;
+}
+
+.scull-potion .surface {
+    width: 58px;
+    background: var(--bone-lid-shad);
+    top: 85px;
+}
+
+
+.triangle-glass .bubble {
+    background: var(--gree-bubble);
+    z-index: 1;
+}
+
+.triangle-glass .bubble:before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    box-shadow: 0 2px 0 0 var(--green-bubble-shadow);
+    border-radius: 50%;
+    position: absolute;
+    bottom: 2px;
+}
+
+.triangle-glass .b1 {
+    left: 30px;
+    top: 48px;
+}
+
+.triangle-glass .b2 {
+    left: -20px;
+    top: 50px;
+}
+
+.triangle-glass .b3 {
+    left: -15px;
+    top: 65px;
+}
+
+.triangle-glass .b4 {
+    left: 40px;
+    top: 60px
+}
+
+.triangle-glass .b5 {
+    left: -30px;
+    top: 60px;
+}
+
+/*bone*/
+.bone {
+    width: 34px;
+    height: 15px;
+    position: absolute;
+    rotate: 10deg;
+    z-index: 1;
+    top: 54px;
+    left: -5px;
+    animation: bone 3s ease-in-out infinite;
+}
+
+.bone1 {
+    width: 25px;
+    height: 5px;
+    background-color: var(--bone);
+    border-radius: 2px;
+    box-shadow: 1px 1px var(--bone-shadow);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 1;
+}
+
+.bone2 {
+    width: 7px;
+    height: 7px;
+    background-color: var(--bone);
+    border-radius: 50%;
+    box-shadow: 0px 2px var(--bone-shadow);
+    position: absolute;
+    left: 2px;
+    top: 1px;
+}
+
+.bone3 {
+    width: 7px;
+    height: 7px;
+    background-color: var(--bone);
+    border-radius: 50%;
+    box-shadow: 0px 2px var(--bone-shadow);
+    position: absolute;
+    left: 2px;
+    top: 6px;
+    z-index: 2;
+}
+
+.bone4 {
+    width: 7px;
+    height: 7px;
+    background-color: var(--bone);
+    border-radius: 50%;
+    box-shadow: 1px 2px var(--bone-shadow);
+    position: absolute;
+    left: 25px;
+    top: 1px;
+    z-index: 1;
+}
+
+.bone5 {
+    width: 7px;
+    height: 7px;
+    background-color: var(--bone);
+    border-radius: 50%;
+    box-shadow: 1px 1px var(--bone-shadow);
+    position: absolute;
+    left: 25px;
+    top: 6px;
+    z-index: 1;
+}
+
+@keyframes bone {
+    50% {
+        transform: translateY(3px)
+    }
+}
+
+/*ghosts-potion*/
+.ghosts-potion {
+    position: relative;
+    margin: auto;
+}
+
+.ghosts-potion .ring {
+    width: 40px;
+    height: 12px;
+    margin: auto;
+    top: 25px;
+    z-index: 2;
+}
+
+.ghosts-potion .ring::before {
+    content: '';
+    width: 25px;
+    height: 6px;
+    top: 2px;
+    margin: auto;
+}
+
+.ghosts-potion .neck {
+    width: 25px;
+    height: 40px;
+    top: 30px;
+    z-index: 1;
+}
+
+.square-glass {
+    width: 90px;
+    height: 72px;
+    background: var(--glass-out);
+    border-radius: 20px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 65px;
+    margin: auto;
+}
+
+.empthy2 {
+    width: 80px;
+    height: 62px;
+    background: var(--glass-in);
+    border-radius: 20px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 70px;
+    margin: auto;
+}
+
+.liquid2 {
+    width: 80px;
+    height: 48px;
+    background: var(--ghost-liq);
+    border-radius: 10px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 85px;
+    margin: auto;
+}
+
+.ghosts-potion .surface {
+    background: var(--ghost-liq-shad);
+    width: 80px;
+    height: 20px;
+    top: 80px;
+}
+
+.ghost1 {
+    width: 16px;
+    height: 19px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 38px;
+    margin: auto;
+    rotate: 3deg;
+    z-index: 1;
+    opacity: 0;
+    /*animation: name duration timing-function delay iteration-count direction fill-mode;*/
+    animation: ghosts 4s ease-in-out .5s infinite;
+}
+
+.ghost2 {
+    width: 10px;
+    height: 12px;
+    position: absolute;
+    left: 8px;
+    top: 38px;
+    margin: auto;
+    rotate: -5deg;
+    z-index: 1;
+    opacity: 0;
+    animation: ghosts 4s ease-in-out 50ms infinite;
+}
+
+.ghost3 {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    right: 8px;
+    top: 38px;
+    margin: auto;
+    rotate: 5deg;
+    z-index: 1;
+    animation: ghosts 4s ease-in-out infinite;
+}
+
+.ghost4 {
+    width: 10px;
+    height: 12px;
+    position: absolute;
+    right: 60px;
+    top: 54px;
+    margin: auto;
+    rotate: 3deg;
+    z-index: 1;
+    opacity: 0;
+    animation: ghosts 4s ease-in-out .7s infinite;
+}
+
+.ghost5 {
+    width: 12px;
+    height: 14px;
+    position: absolute;
+    right: 15px;
+    top: 50px;
+    margin: auto;
+    rotate: -10deg;
+    z-index: 1;
+    opacity: 0;
+    animation: ghosts 4s ease-in-out 10ms infinite;
+}
+
+.body {
+    width: 11px;
+    height: 16px;
+    background: var(--ghost-body);
+    border-radius: 50% 50% 10% 10%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+}
+
+.btm1 {
+    top: 14px;
+}
+
+.btm2 {
+    top: 14px;
+    left: 3px;
+}
+
+.btm3 {
+    top: 14px;
+    left: 6px;
+}
+
+.btm4 {
+    top: 14px;
+    left: 8px;
+}
+
+.bd1 {
+    scale: 1;
+}
+
+.bd2 {
+    scale: .6;
+}
+
+.bd3 {
+    scale: .5;
+}
+
+.bd4 {
+    scale: .6;
+}
+
+.bd5 {
+    scale: .7;
+}
+
+.eye-G1 {
+    width: 2px;
+    height: 5px;
+    background: var(--ghost-eye-mouth);
+    border-radius: 50%;
+    rotate: 10deg;
+    position: absolute;
+    left: 0;
+    right: 4px;
+    top: 4px;
+    margin: auto;
+}
+
+.eye-G2 {
+    width: 2px;
+    height: 5px;
+    background: var(--ghost-eye-mouth);
+    border-radius: 50%;
+    rotate: -9deg;
+    position: absolute;
+    left: 4px;
+    right: 0px;
+    top: 4px;
+    margin: auto;
+}
+
+.mouth {
+    width: 3px;
+    height: 5px;
+    background: var(--ghost-eye-mouth);
+    border-radius: 50%;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 9px;
+    margin: auto;
+}
+
+.bottom-B {
+    width: 3px;
+    height: 3px;
+    background-color: var(--ghost-body);
+    border-radius: 50%;
+    position: absolute;
+}
+
+@keyframes ghosts {
+    0% {
+        opacity: 0;
+        transform: translateY(2px);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(-4px);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-5px);
+
+    }
+}
+
+
+/*DROPED LIQUID*/
+.empthy-potion {
+    position: relative;
+    top: 45px;
+    rotate: -90deg;
+    margin: auto;
+}
+
+.empthy-potion .ring {
+    right: 45px;
+    width: 40px;
+    rotate: 5deg;
+    left: 0;
+    right: 0;
+    top: 25px;
+    margin: auto;
+}
+
+.empthy-potion .ring::before {
+    height: 3px;
+}
+
+.empthy-glass {
+    width: 25px;
+    height: 85px;
+    border-radius: 0% 0% 50% 50%;
+    border: 5px solid var(--glass-out);
+    background-color: var(--glass-in);
+    position: absolute;
+    rotate: 6deg;
+    left: 0;
+    right: 10px;
+    top: 30px;
+    margin: auto;
+    z-index: 1;
+}
+
+.liquid3 {
+    width: 5px;
+    height: 18px;
+    border-radius: 15% 100% 100% 100%;
+    background-color: var(--liquid-in);
+    position: absolute;
+    rotate: 3deg;
+    top: 75px;
+    left: 47px;
+    margin: auto;
+    z-index: 1;
+}
+
+.out-liq {
+    background-color: var(--liquid-out);
+    width: 18px;
+    height: 25px;
+    position: absolute;
+    border-radius: 45%;
+    left: 0px;
+    right: 40px;
+    bottom: 95px;
+    margin: auto;
+}
+
+.out-liq::before {
+    content: '';
+    width: 12px;
+    height: 25px;
+    background-color: var(--liquid-out);
+    border-radius: 20px 100px 20px 100px;
+    position: absolute;
+    bottom: 10px;
+    margin: auto;
+}
+
+.out-liq::after {
+    content: '';
+    width: 20px;
+    height: 10px;
+    background-color: var(--liquid-out);
+    border-radius: 50px 0px 0px 50px;
+    position: absolute;
+    margin: auto;
+    right: 15px;
+    bottom: 20px;
+}
+
+.drop {
+    width: 13px;
+    height: 14px;
+    background: var(--liquid-out);
+    border-radius: 50%;
+    position: absolute;
+    right: 100px;
+    bottom: 114px;
+    margin: auto;
+    animation: drop 3s ease infinite;
+}
+
+.drop::before {
+    content: '';
+    width: 9px;
+    height: 10px;
+    border-radius: 25%;
+    rotate: 45deg;
+    background-color: var(--liquid-out);
+    position: absolute;
+    left: 5px;
+    top: 3px;
+    margin: auto;
+}
+
+@keyframes drop {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-10px);
+        background-color: var(--liquid-out);
+    }
+
+    100% {
+        transform: translate(-255px);
+        background-color: var(--liquid-floor);
+    }
+}
+
+
+.liq-floor {
+    width: 60px;
+    height: 25px;
+    background: var(--liquid-floor);
+    border-radius: 50%;
+    position: absolute;
+    bottom: 2px;
+    left: 220px;
+    margin: auto;
+}
+
+.liq-floor::before {
+    content: '';
+    width: 40px;
+    height: 15px;
+    background-color: var(--liquid-floor);
+    border-radius: 50%;
+    position: absolute;
+    right: 25px;
+}
+
+
+/*LOVE POTION*/
+
+.love-potion {
+    position: relative;
+    margin: auto;
+    bottom: 310px;
+    left: 30px;
+}
+
+.love-potion .ring {
+    right: 39px;
+    top: 20px;
+}
+
+.love-potion .ring::before {
+    height: 3px;
+}
+
+.love-potion .neck {
+    right: 40px;
+    top: 23px;
+    height: 36px;
+    width: 22px;
+}
+
+.circle-glass {
+    width: 90px;
+    height: 65px;
+    position: absolute;
+    border-radius: 50%;
+    background: var(--glass-out);
+    top: 55px;
+    right: 35px;
+    margin: auto;
+}
+
+.empthy3 {
+    width: 80px;
+    height: 55px;
+    border-radius: 50%;
+    background-color: var(--glass-in);
+    position: absolute;
+    top: 58px;
+    margin: auto;
+    z-index: 2;
+}
+
+.red-liq {
+    width: 80px;
+    height: 38px;
+    border-radius: 50%;
+    border-radius: 25% 25% 80% 80%;
+    background: linear-gradient(45deg, #dc0808, #f11062, #e30967, #ff2ffc);
+    background-size: 200% 200%;
+    position: absolute;
+    top: 74px;
+    z-index: 2;
+    animation: love-liq 5s ease-in-out infinite;
+}
+
+.love-potion .surface {
+    background: linear-gradient(-45deg, #c20707, #d00e55, #ca095d, #eb0ce7);
+    background-size: 200% 200%;
+    right: 199px;
+    top: 71px;
+    height: 13px;
+    z-index: 2;
+    animation: love-liq 5s ease-in-out infinite;
+}
+
+@keyframes love-liq {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.bottom {
+    background: var(--bottom);
+    width: 80px;
+    height: 20px;
+    border-radius: 25%;
+    position: absolute;
+    top: 107px;
+    margin: auto;
+    z-index: 1;
+}
+
+.heart {
+    width: 14px;
+    height: 14px;
+    background-color: var(--heart);
+    border-radius: 50%;
+    position: absolute;
+    backdrop-filter: blur(5px);
+    left: 0;
+    right: 10px;
+    bottom: 0;
+    top: 12px;
+    margin: auto;
+    z-index: 4;
+    animation: heart 4s ease-in-out infinite;
+}
+
+.heart::before {
+    content: '';
+    width: 14px;
+    height: 14px;
+    background-color: var(--heart);
+    border-radius: 50%;
+    position: absolute;
+    backdrop-filter: blur(5px);
+    left: 10px;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    animation: heart 3s ease-in-out infinite;
+}
+
+.heart::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 16px;
+    margin: auto;
+    backdrop-filter: blur(2px);
+    border-top: 15px solid var(--heart);
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    animation: heart 3s ease-in-out infinite;
+}
+
+@keyframes heart {
+    50% {
+        transform: scale(.9);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
